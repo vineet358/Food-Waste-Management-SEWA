@@ -226,7 +226,7 @@
 .chart-card {
   background: white;
   border-radius: 16px;
-  padding: 24px;
+  padding: 35px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   border: 1px solid #f1f5f9;
 }
@@ -285,7 +285,13 @@
   align-items: center;
   gap: 12px;
   font-size: 14px;
+
+  /* Ensure text is visible */
+  visibility: visible;
+  opacity: 1;
+  color: #000; /* makes text black and readable */
 }
+
 
 .pie-legend-item .legend-color {
   width: 16px;
@@ -394,6 +400,10 @@
 .donations-count,
 .servings-count {
   text-align: center;
+  display: block;      /* ensures they take up full width if inline */
+  visibility: visible; /* makes sure they're visible */
+  opacity: 1;          /* ensures they're not transparent */
+  color: #000;         /* optional - sets visible text color */
 }
 
 .count {

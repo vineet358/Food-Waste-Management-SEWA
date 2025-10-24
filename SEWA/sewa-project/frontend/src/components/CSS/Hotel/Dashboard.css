@@ -13,12 +13,20 @@
   color: white;
   position: fixed;
   height: 100vh;
-  left: -260px;
+  left: -220px; /* shift 40px more toward right */
   top: 0;
   transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1000;
   box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
 }
+
+@media (min-width: 768px) {
+  .sidebar {
+      position: static;
+      left: 0px;
+  }
+}
+
 
 .sidebar-open {
   left: 0;
@@ -111,7 +119,7 @@
 
 .topbar {
   background: white;
-  padding: 16px 24px;
+  padding: 16px 8px 16px 12px; /* reduced left padding */
   border-bottom: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
@@ -121,6 +129,7 @@
   z-index: 100;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
+
 
 .menu-toggle {
   background: none;
@@ -152,6 +161,11 @@
   background-color: #f8fafc;
   transition: all 0.2s ease;
   cursor: pointer;
+
+  /* Ensure visibility */
+  visibility: visible;
+  opacity: 1;
+  color: #000; /* text visible on light background */
 }
 
 .user-profile:hover {

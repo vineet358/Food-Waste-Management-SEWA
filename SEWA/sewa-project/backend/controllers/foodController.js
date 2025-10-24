@@ -295,25 +295,24 @@ export const getAvailableDonations = async (req, res) => {
     await markExpiredFoods();
 
     let filter = { status: "available" };
-    if (ngoId) filter.rejectedBy = { $ne: ngoId };
-
-    // Get NGO's city for filtering
     let ngoCity = null;
+
     if (ngoId) {
-      const Ngo = (await import("../models/Ngo.js")).default;
+      // If NGO is logged in, get city filter
       const ngo = await Ngo.findById(ngoId).select("city");
       if (ngo && ngo.city) {
         ngoCity = ngo.city;
-        // Filter donations by city - only show donations from the same city
         filter.city = ngoCity;
+        filter.rejectedBy = { $ne: ngoId }; // Exclude rejected ones
       }
     }
 
+    // Fetch all available food items (filtered if ngoId is given)
     const donations = await Food.find(filter)
       .sort({ createdAt: -1 })
       .populate("hotelId", "phone email managerName");
 
-    // Format expiry display
+    // Add expiry display info
     const formattedDonations = donations.map(food => {
       const now = new Date();
       const timeLeftMs = food.expiryAt - now;
@@ -329,7 +328,7 @@ export const getAvailableDonations = async (req, res) => {
     res.json({
       message: "Available donations fetched successfully",
       donations: formattedDonations,
-      filteredByCity: ngoCity || "No city filter applied",
+      filteredByCity: ngoCity || "Showing all available donations (no NGO filter)",
     });
   } catch (error) {
     console.error("Error fetching available donations:", error);

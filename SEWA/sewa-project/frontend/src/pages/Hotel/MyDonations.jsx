@@ -166,10 +166,7 @@ const MyDonations = () => {
           <h1>Donation History</h1>
           <p>Track and manage all your food donations</p>
         </div>
-        <button className="export-btn" onClick={handleExport}>
-          <Download size={20} />
-          Export Data
-        </button>
+        
       </div>
 
       {/* Filters */}

@@ -73,13 +73,14 @@
 }
 
 .search-box input {
-  width: 100%;
-  padding: 12px 12px 12px 44px;
+  width: 81%;
+  padding: 14px 12px 12px 44px;
   border: 1px solid #d1d5db;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 12px;
   background-color: white;
-  transition: all 0.2s ease;
+  transition: all 0.2s 
+ease;
 }
 
 .search-box input:focus {

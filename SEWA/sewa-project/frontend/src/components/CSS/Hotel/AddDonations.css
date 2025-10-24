@@ -15,16 +15,15 @@
 }
 
 .donation-header h1 {
-  font-size: 32px;
+  font-size: 27px;
   font-weight: 700;
   color: #1e293b;
   margin: 0 0 8px 0;
 }
-
 .donation-header p {
   font-size: 16px;
   color: #64748b;
-  margin: 0;
+  margin: 6px;
 }
 
 /* Form Styles */

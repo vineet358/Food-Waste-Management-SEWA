@@ -464,7 +464,7 @@ if (!latitude || !longitude) {
 
         {/* Form Actions */}
         <div className="form-actions">
-          <button type="button" className="btn-secondary">Save as Draft</button>
+         
           <button type="submit" className="btn-primary" disabled={isSubmitting}>
             {isSubmitting ? 'Adding Donation...' : 'Add Donation'}
           </button>
